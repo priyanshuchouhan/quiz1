@@ -1,0 +1,53 @@
+#
+def main():
+ 
+    quiz_data = [
+        {
+            "question": "What is the capital of France?",
+            "options": ["1. Paris", "2. Berlin", "3. Rome", "4. Madrid"],
+            "answer": 1
+        },
+        {
+            "question": "Which programming language is known as the language of AI?",
+            "options": ["1. Python", "2. C++", "3. Java", "4. Ruby"],
+            "answer": 1
+        },
+        {
+            "question": "What is the square root of 64?",
+            "options": ["1. 6", "2. 7", "3. 8", "4. 9"],
+            "answer": 3
+        },
+    ]
+
+    score = 0  
+
+    # Display each question and get user input
+    for index, question in enumerate(quiz_data):
+        print(f"Question {index + 1}: {question['question']}")
+        for option in question["options"]:
+            print(option)
+        
+        # Get user's answer
+        try:
+            user_answer = int(input("Enter your choice (1-4): "))
+            if user_answer == question["answer"]:
+                print("Correct! 🎉")
+                score += 1
+            else:
+                print(f"Wrong! The correct answer is {question['answer']}.")
+        except ValueError:
+            print("Invalid input! Please enter a number between 1 and 4.")
+
+        print("-" * 50)
+
+    # Display final score
+    print(f"Quiz Finished! Your final score is: {score}/{len(quiz_data)}")
+    if score == len(quiz_data):
+        print("Excellent! You got all the answers correct! 🌟")
+    elif score > len(quiz_data) / 2:
+        print("Good job! You passed! ✅")
+    else:
+        print("Better luck next time! 💪")
+
+if __name__ == "__main__":
+    main()
